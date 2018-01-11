@@ -11,12 +11,10 @@ function PrivateKeyProvider(privateKey, providerUrl) {
   this.address = "0x" + this.wallet.getAddress().toString("hex");
 
   this.engine = new ProviderEngine();
-  const web3Provider = new Web3.providers.HttpProvider(providerUrl);
-  if (!web3Provider.sendAsync) web3Provider.sendAsync = web3Provider.send;
 
   this.engine.addProvider(new FiltersSubprovider());
   this.engine.addProvider(new WalletSubprovider(this.wallet, {}));
-  this.engine.addProvider(new Web3Subprovider(web3Provider));
+  this.engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl);));
   this.engine.start();
 }
 
