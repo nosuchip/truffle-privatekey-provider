@@ -1,0 +1,27 @@
+{
+  "name": "truffle-privatekey-provider",
+  "version": "0.0.1",
+  "description": "Private Key Web3 provider",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nosuchip/truffle-privatekey-provider.git"
+  },
+  "keywords": [
+    "etheruem",
+    "private key",
+    "wallet",
+    "provider"
+  ],
+  "author": "Alex Popov <nosuchip@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nosuchip/truffle-privatekey-provider/issues"
+  },
+  "homepage": "https://github.com/nosuchip/truffle-privatekey-provider#readme",
+  "dependencies": {
+  }
+}
+
