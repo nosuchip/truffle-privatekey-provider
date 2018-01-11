@@ -14,7 +14,7 @@ function PrivateKeyProvider(privateKey, providerUrl) {
 
   this.engine.addProvider(new FiltersSubprovider());
   this.engine.addProvider(new WalletSubprovider(this.wallet, {}));
-  this.engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl);));
+  this.engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl)));
   this.engine.start();
 }
 
