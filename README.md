@@ -15,7 +15,7 @@ Provider can be used either with Web3 only or in Truffle infrastructure
 
 
 ```javascript
-var HDWalletProvider = require("truffle-privatekey-provider");
+var PrivateKeyProvider = require("truffle-privatekey-provider");
 var privateKey = "62537136911bca3a7e2b....";
 var provider = new PrivateKeyProvider(privateKey, "http://localhost:8545");
 
