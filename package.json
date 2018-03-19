@@ -9,10 +9,11 @@
     "url": "git+https://github.com/nosuchip/truffle-privatekey-provider.git"
   },
   "keywords": [
-    "etheruem",
+    "ethereum",
     "private key",
     "wallet",
-    "provider"
+    "provider",
+    "truffle provider"
   ],
   "author": "Alex Popov <nosuchip@gmail.com>",
   "license": "MIT",
