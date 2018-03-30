@@ -4,7 +4,7 @@ const WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js')
 const Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
 const EthereumjsWallet = require('ethereumjs-wallet');
 const Web3 = require("web3");
-
+const NonceSubprovider = require('web3-provider-engine/subproviders/nonce-tracker.js');
 
 function PrivateKeyProvider(privateKey, providerUrl) {
   this.wallet = EthereumjsWallet.fromPrivateKey(new Buffer(privateKey, "hex"));
@@ -13,6 +13,7 @@ function PrivateKeyProvider(privateKey, providerUrl) {
   this.engine = new ProviderEngine();
 
   this.engine.addProvider(new FiltersSubprovider());
+  this.engine.addProvider(new NonceSubprovider());
   this.engine.addProvider(new WalletSubprovider(this.wallet, {}));
   this.engine.addProvider(new Web3Subprovider(new Web3.providers.HttpProvider(providerUrl)));
   this.engine.start();
