@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/truffle-privatekey-provider.png)](https://nodei.co/npm/truffle-privatekey-provider)
+
 # truffle-privatekey-provider
 Private Key provider for Web3. Used to sign transactions by provider private key
 
