@@ -7,6 +7,14 @@ const Web3 = require("web3");
 const NonceSubprovider = require('web3-provider-engine/subproviders/nonce-tracker.js');
 
 function PrivateKeyProvider(privateKey, providerUrl) {
+  if (!privateKey) {
+    throw new Error(`Private Key missing, non-empty string expected, got "${privateKey}"`);
+  }
+
+  if (!providerUrl) {
+    throw new Error(`Provider URL missing, non-empty string expected, got "${providerUrl}"`);
+  }
+
   this.wallet = EthereumjsWallet.fromPrivateKey(new Buffer(privateKey, "hex"));
   this.address = "0x" + this.wallet.getAddress().toString("hex");
 
