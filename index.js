@@ -24,12 +24,14 @@ function PrivateKeyProvider(privateKey, providerUrl) {
   this.engine.addProvider(new NonceSubprovider());
   this.engine.addProvider(new WalletSubprovider(this.wallet, {}));
 
+  const httpProvider = new Web3.providers.HttpProvider(providerUrl);
+
   // HACK: `sendAsync` was removed
-  if (!Web3.providers.HttpProvider.prototype.sendAsync) {
-    Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send
+  if (!httpProvider.sendAsync) {
+    httpProvider.sendAsync = httpProvider.send;
   }
 
-  this.engine.addProvider(new ProviderSubprovider(new Web3.providers.HttpProvider(providerUrl)));
+  this.engine.addProvider(new ProviderSubprovider(httpProvider));
   this.engine.start();
 }
 
