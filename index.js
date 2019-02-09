@@ -1,10 +1,9 @@
 const ProviderEngine = require("web3-provider-engine");
-const FiltersSubprovider = require('web3-provider-engine/subproviders/filters.js');
-const WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
-const ProviderSubprovider = require("web3-provider-engine/subproviders/provider.js");
+const FiltersSubprovider = require('web3-provider-engine/subproviders/filters');
+const WalletSubprovider = require('web3-provider-engine/subproviders/wallet');
+const RpcSubprovider = require('web3-provider-engine/subproviders/rpc');
 const EthereumjsWallet = require('ethereumjs-wallet');
-const Web3 = require("web3");
-const NonceSubprovider = require('web3-provider-engine/subproviders/nonce-tracker.js');
+const NonceSubprovider = require('web3-provider-engine/subproviders/nonce-tracker');
 
 function PrivateKeyProvider(privateKey, providerUrl) {
   if (!privateKey) {
@@ -23,15 +22,8 @@ function PrivateKeyProvider(privateKey, providerUrl) {
   this.engine.addProvider(new FiltersSubprovider());
   this.engine.addProvider(new NonceSubprovider());
   this.engine.addProvider(new WalletSubprovider(this.wallet, {}));
+  this.engine.addProvider(new RpcSubprovider({ rpcUrl: providerUrl }));
 
-  const httpProvider = new Web3.providers.HttpProvider(providerUrl);
-
-  // HACK: `sendAsync` was removed
-  if (!httpProvider.sendAsync) {
-    httpProvider.sendAsync = httpProvider.send;
-  }
-
-  this.engine.addProvider(new ProviderSubprovider(httpProvider));
   this.engine.start();
 }
 
