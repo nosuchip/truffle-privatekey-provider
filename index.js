@@ -32,7 +32,7 @@ PrivateKeyProvider.prototype.sendAsync = function() {
 };
 
 PrivateKeyProvider.prototype.send = function() {
-  return this.engine.sendAsync.apply(this.engine, arguments);
+  return this.engine.send.apply(this.engine, arguments);
 };
 
 
