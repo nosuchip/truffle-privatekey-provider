@@ -40,7 +40,7 @@ var privateKey = "62537136911bca3a7e2b....";
 module.exports = {
   networks: {
     rinkeby: {
-      provider: new PrivateKeyProvider(privateKey, "https://rinkeby.infura.io/"),
+      provider: () => new PrivateKeyProvider(privateKey, "https://rinkeby.infura.io/"),
       network_id: 4
     },
     ....
