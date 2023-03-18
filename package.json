@@ -23,6 +23,6 @@
   "homepage": "https://github.com/nosuchip/truffle-privatekey-provider#readme",
   "dependencies": {
     "ethereumjs-wallet": "^1.0.0",
-    "web3-provider-engine": "^15.0.12"
+    "web3-provider-engine": "^16.0.5"
   }
 }
